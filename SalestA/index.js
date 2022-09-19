@@ -109,7 +109,8 @@ function updateCartTotal() {
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var taxes = 0
         if(cartRow.classList.contains('tax-0')){
-            taxes=0;
+            taxes = 0;
+            console.log("yes -0")
         }
         else if(cartRow.classList.contains('tax-10')){
             taxes = 10;
@@ -121,14 +122,15 @@ function updateCartTotal() {
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
-        if(taxes = 15){
+        if(taxes == 15){
             total = total + ((price+ (price *5/100)) * quantity)
         }
         else{
             total = total + (price * quantity)
 
         }
-        if(taxes ==0){
+
+        if(taxes == 0  ){
             disptax = disptax +  0;
         }
         else{
