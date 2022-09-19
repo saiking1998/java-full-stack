@@ -139,6 +139,7 @@ function updateCartTotal() {
     }
     total = Math.round((total+disptax) * 100) / 100 
     disptax = Math.round(disptax *100)/100
+    
      document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
     document .getElementsByClassName('tax-total')[0].innerText = '$' +disptax
 }
