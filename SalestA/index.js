@@ -132,7 +132,7 @@ function updateCartTotal() {
             disptax = disptax +  0;
         }
         else{
-            disptax = disptax + (price *10/100)
+            disptax = disptax + (price *10/100 *quantity)
         }
         
 
