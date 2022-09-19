@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+  background-color:#DEB887;
+}
+h1
+{
+  text-align:center;
+  background-color:#808000;
+  padding:6px;
+  color:white;
+}
+
+.main
+{
+  height:525px;
+  width:525px;
+  background-image:url("https://i2.wp.com/techieme.in/wp-content/uploads/snakesnladders.png?fit=555%2C483");
+  background-size:525px 525px;
+  background-repeat:no-repeat;
+  float:left;
+  border:3px solid  #A52A2A;
+}
+
+.superimposed
+{
+
+  height:500px;
+  width:500px;
+  position:absolute;
+  top:90px;
+  left:20px;
+}
+
+#side
+{
+  height:500px;
+  width:200px;
+  margin-left:500px;
+}
+
+.btn
+{
+  height:40px;
+  width:100px;
+  margin-left:50px;
+  margin-top:20px;
+  border-radius:5px;
+}
+.boardbox
+{
+  height:50px;
+  width:50px;
+  z-index:-1;
+
+}
+.left
+{
+  float:left;
+}
+.right
+{
+  float:right;
+}
+.img
+{
+  height:45px;
+  width:50px;
+  margin:2px 0px 3px 0px;
+}
+#dice
+{
+  height:80px;
+  width:80px;
+  font-size:70px;
+  color:black;
+  margin:auto;
+  border:none;
+  background-color:white;
+  margin-left: 60px;
+  margin-top:30px;
+}
+    </style>
+</head>
+<body>
+    <h1>Snake and ladder</h1>
+    <div class="main" ></div>
+    <div class="superimposed" id="board"></div>
+    <div id="side">
+      <button class="btn" id="Play" onclick="play()">New game</button><br>
+      <button id="dice" onclick="random()"></button>
+  </body>
+  <script>
+
+var number=1;
+var a;
+var j;
+var n=1;
+var m=0;
+var dices=["","⚀","⚁","⚂","⚃","⚄","⚅"];
+var id=100;
+  
+for (a=0;a<5;a++)
+{
+  for (b=0;b<=9;b++)
+    { 
+      document.getElementById("board").innerHTML+="<div class='boardbox left' id='box"+id+"' ></div>"
+      id--;
+    }
+  for (c=0;c<=9;c++)
+    { 
+      document.getElementById("board").innerHTML+="<div class='boardbox right'id='box"+id+"'></div>"
+      id--;
+    }   
+ } 
+document.getElementById("box"+number).innerHTML="<img id='counter' class='img' src='https://www.freepngimg.com/thumb/chess/24-chess-png-image.png'></img>"
+var play=function()
+{  
+  number=1;
+  document.getElementById("board").style.visibility = "visible";
+  document.getElementById("dice").style.visibility = "visible";
+  document.getElementById("Play").style.visibility = "hidden";
+  document.getElementById("dice").innerHTML=dices[1];
+}
+var random=function()
+{   
+ 
+  document.getElementById("dice").disabled=false;
+  var dices=["⚀","⚁","⚂","⚃","⚄","⚅"];
+  a= Math.floor(Math.random()*5);
+  document.getElementById("dice").innerHTML=dices[a];
+  if(n+a>100)
+    {
+      a=0;
+     }
+     d=0;
+     move()
+}
+var move=function()
+{
+  document.getElementById("dice").disabled=true;
+  t=setInterval(move2,200)
+}
+var move2=function()
+{ 
+  n++;
+  m++;
+  if(m<(a)||m==(a))
+   { 
+   if(d==(a-1))
+       {
+          if (n==8)
+            {
+               n= 77;
+            }
+          else if (n==37)
+            {
+               n=94;
+            }
+          else if (n==58)
+            {
+               n=82;
+            }
+          else if (n==53)
+            {
+               n=2;
+            }
+          else if (n==72)
+            {
+               n=30;
+            }
+          else if (n==87)
+            {
+               n=57;
+            }
+          else if (n==90)
+            {
+               n=43;
+            }
+          else if (n==99)
+            {
+               n=12;
+            }
+          
+          
+         else if (n==100)
+           {
+             alert("You win");
+             document.getElementById("Play").style.visibility = "visible";
+             document.getElementById("dice").style.visibility = "hidden";
+             n=1;
+           }
+         else
+           {
+              n=n;
+           }
+       }
+       var s=document.getElementById("counter");
+       document.getElementById("box"+n).appendChild(s); 
+       d+=1;
+     }
+   else
+     {
+        m=0;
+        n-=1;
+        clearInterval(t);
+        document.getElementById("dice").disabled=false;
+     }
+}
+  </script>
+</html>

@@ -1,0 +1,760 @@
+<!-- <!DOCTYPE html>
+   
+<head>
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+   
+    CSS file Included 
+    <title>tic tac TOE</title>  
+    <style>
+        /* CSS Code */
+    /* Heading */
+    h1 {
+        color: orangered;
+        font-size: 45px;
+    }
+ 
+    /* 3*3 Grid */
+    #b1, #b2, #b3, #b4, #b5,
+    #b6, #b7, #b8, #b9 {
+        width: 80px;
+        height: 52px;
+        margin: auto;
+        border: 1px solid gray;
+        border-radius: 6px;
+        font-size: 30px;
+        text-align: center;
+    }
+ 
+    /* Reset Button */
+    #but {
+        box-sizing: border-box;
+        width: 95px;
+        height: 40px;
+        border: 1px solid dodgerblue;
+        margin: auto;
+        border-radius: 4px;
+        font-family: Verdana,
+            Geneva, Tahoma, sans-serif;
+ 
+        background-color: dodgerblue;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+ 
+    /* Player turn space */
+    #print {
+        font-family: Verdana,
+            Geneva, Tahoma, sans-serif;
+ 
+        color: dodgerblue;
+        font-size: 20px;
+    }
+ 
+    /* Main Container */
+    #main {
+        text-align: center;
+    }
+ 
+    /* Game Instruction Text */
+    #ins {
+        font-family: Verdana,
+            Geneva, Tahoma, sans-serif;
+             
+        color: dodgerblue;
+        font-size: 17px;
+    }
+    </style>
+</head>
+   
+<body>
+    <div id="main">
+        <h1>TIC TAC TOE</h1>
+   
+        
+        <p id="ins">Game starts by just Tap on 
+            box<br><br>First Player starts as 
+            <b>Player X</b><br>And<br>Second 
+            Player as <b>Player 0</b>
+        </p>
+ 
+  
+   
+   
+        <br><br>
+        
+        <input type="text" id="b1" onclick=
+            "myfunc_3(); myfunc();" readonly>
+   
+        <input type="text" id="b2" onclick=
+            "myfunc_4(); myfunc();" readonly>
+   
+        <input type="text" id="b3" onclick=
+            "myfunc_5(); myfunc();" readonly>
+        <br><br>
+   
+        <input type="text" id="b4" onclick=
+            "myfunc_6(); myfunc();" readonly>
+               
+        <input type="text" id="b5" onclick=
+            "myfunc_7(); myfunc();" readonly>
+   
+        <input type="text" id="b6" onclick=
+            "myfunc_8(); myfunc();" readonly>
+        <br><br>
+   
+        <input type="text" id="b7" onclick=
+            "myfunc_9(); myfunc();" readonly>
+   
+        <input type="text" id="b8" onclick=
+            "myfunc_10();myfunc();" readonly>
+   
+        <input type="text" id="b9" onclick=
+            "myfunc_11();myfunc();" readonly>
+   
+        
+        <br><br><br>
+       
+        <button id="but" onclick="myfunc_2()">
+            RESET
+        </button>
+   
+        <br><br>
+        
+        <p id="print"></p>
+ 
+  
+   
+   
+    </div>
+    <script>
+      function myfunc() {
+ 
+ // Setting DOM to all boxes or input field
+ var b1, b2, b3, b4, b5, b6, b7, b8, b9;
+ b1 = document.getElementById("b1").value;
+ b2 = document.getElementById("b2").value;
+ b3 = document.getElementById("b3").value;
+ b4 = document.getElementById("b4").value;
+ b5 = document.getElementById("b5").value;
+ b6 = document.getElementById("b6").value;
+ b7 = document.getElementById("b7").value;
+ b8 = document.getElementById("b8").value;
+ b9 = document.getElementById("b9").value;
+
+ // Checking if Player X won or not and after
+ // that disabled all the other fields
+ if ((b1 == 'x' || b1 == 'X') && (b2 == 'x' ||
+     b2 == 'X') && (b3 == 'x' || b3 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player X won');
+ }
+ else if ((b1 == 'x' || b1 == 'X') && (b4 == 'x' ||
+     b4 == 'X') && (b7 == 'x' || b7 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+
+     window.alert('Player X won');
+ }
+ else if ((b7 == 'x' || b7 == 'X') && (b8 == 'x' ||
+     b8 == 'X') && (b9 == 'x' || b9 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b6").disabled = true;
+     window.alert('Player X won');
+ }
+ else if ((b3 == 'x' || b3 == 'X') && (b6 == 'x' ||
+     b6 == 'X') && (b9 == 'x' || b9 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     window.alert('Player X won');
+ }
+ else if ((b1 == 'x' || b1 == 'X') && (b5 == 'x' ||
+     b5 == 'X') && (b9 == 'x' || b9 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     window.alert('Player X won');
+ }
+ else if ((b3 == 'x' || b3 == 'X') && (b5 == 'x' ||
+     b5 == 'X') && (b7 == 'x' || b7 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player X won');
+ }
+ else if ((b2 == 'x' || b2 == 'X') && (b5 == 'x' ||
+     b5 == 'X') && (b8 == 'x' || b8 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player X won');
+ }
+ else if ((b4 == 'x' || b4 == 'X') && (b5 == 'x' ||
+     b5 == 'X') && (b6 == 'x' || b6 == 'X')) {
+     document.getElementById('print')
+         .innerHTML = "Player X won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player X won');
+ }
+
+ // Checking of Player X finish
+ // Checking for Player 0 starts, Is player 0 won or
+ // not and after that disabled all the other fields
+ else if ((b1 == '0' || b1 == '0') && (b2 == '0' ||
+     b2 == '0') && (b3 == '0' || b3 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player 0 won');
+ }
+ else if ((b1 == '0' || b1 == '0') && (b4 == '0' ||
+     b4 == '0') && (b7 == '0' || b7 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player 0 won');
+ }
+ else if ((b7 == '0' || b7 == '0') && (b8 == '0' ||
+     b8 == '0') && (b9 == '0' || b9 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b6").disabled = true;
+     window.alert('Player 0 won');
+ }
+ else if ((b3 == '0' || b3 == '0') && (b6 == '0' ||
+     b6 == '0') && (b9 == '0' || b9 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b5").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     window.alert('Player 0 won');
+ }
+ else if ((b1 == '0' || b1 == '0') && (b5 == '0' ||
+     b5 == '0') && (b9 == '0' || b9 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     window.alert('Player 0 won');
+ }
+ else if ((b3 == '0' || b3 == '0') && (b5 == '0' ||
+     b5 == '0') && (b7 == '0' || b7 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player 0 won');
+ }
+ else if ((b2 == '0' || b2 == '0') && (b5 == '0' ||
+     b5 == '0') && (b8 == '0' || b8 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b4").disabled = true;
+     document.getElementById("b6").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player 0 won');
+ }
+ else if ((b4 == '0' || b4 == '0') && (b5 == '0' ||
+     b5 == '0') && (b6 == '0' || b6 == '0')) {
+     document.getElementById('print')
+         .innerHTML = "Player 0 won";
+     document.getElementById("b1").disabled = true;
+     document.getElementById("b2").disabled = true;
+     document.getElementById("b3").disabled = true;
+     document.getElementById("b7").disabled = true;
+     document.getElementById("b8").disabled = true;
+     document.getElementById("b9").disabled = true;
+     window.alert('Player 0 won');
+ }
+
+ // Checking of Player 0 finish
+ // Here, Checking about Tie
+ else if ((b1 == 'X' || b1 == '0') && (b2 == 'X'
+     || b2 == '0') && (b3 == 'X' || b3 == '0') &&
+     (b4 == 'X' || b4 == '0') && (b5 == 'X' ||
+     b5 == '0') && (b6 == 'X' || b6 == '0') &&
+     (b7 == 'X' || b7 == '0') && (b8 == 'X' ||
+     b8 == '0') && (b9 == 'X' || b9 == '0')) {
+         document.getElementById('print')
+             .innerHTML = "Match Tie";
+         window.alert('Match Tie');
+ }
+ else {
+
+     // Here, Printing Result
+     if (flag == 1) {
+         document.getElementById('print')
+             .innerHTML = "Player X Turn";
+     }
+     else {
+         document.getElementById('print')
+             .innerHTML = "Player 0 Turn";
+     }
+ }
+}
+
+// Function to reset game
+function myfunc_2() {
+ location.reload();
+ document.getElementById('b1').value = '';
+ document.getElementById("b2").value = '';
+ document.getElementById("b3").value = '';
+ document.getElementById("b4").value = '';
+ document.getElementById("b5").value = '';
+ document.getElementById("b6").value = '';
+ document.getElementById("b7").value = '';
+ document.getElementById("b8").value = '';
+ document.getElementById("b9").value = '';
+
+}
+
+// Here onwards, functions check turn of the player
+// and put accordingly value X or 0
+flag = 1;
+function myfunc_3() {
+ if (flag == 1) {
+     document.getElementById("b1").value = "X";
+     document.getElementById("b1").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b1").value = "0";
+     document.getElementById("b1").disabled = true;
+     flag = 1;
+ }
+}
+
+function myfunc_4() {
+ if (flag == 1) {
+     document.getElementById("b2").value = "X";
+     document.getElementById("b2").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b2").value = "0";
+     document.getElementById("b2").disabled = true;
+     flag = 1;
+ }
+}
+
+function myfunc_5() {
+ if (flag == 1) {
+     document.getElementById("b3").value = "X";
+     document.getElementById("b3").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b3").value = "0";
+     document.getElementById("b3").disabled = true;
+     flag = 1;
+ }
+}
+
+function myfunc_6() {
+ if (flag == 1) {
+     document.getElementById("b4").value = "X";
+     document.getElementById("b4").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b4").value = "0";
+     document.getElementById("b4").disabled = true;
+     flag = 1;
+ }
+}
+
+function myfunc_7() {
+ if (flag == 1) {
+     document.getElementById("b5").value = "X";
+     document.getElementById("b5").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b5").value = "0";
+     document.getElementById("b5").disabled = true;
+     flag = 1;
+ }
+}
+
+function myfunc_8() {
+ if (flag == 1) {
+     document.getElementById("b6").value = "X";
+     document.getElementById("b6").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b6").value = "0";
+     document.getElementById("b6").disabled = true;
+     flag = 1;
+ }
+}
+
+function myfunc_9() {
+ if (flag == 1) {
+     document.getElementById("b7").value = "X";
+     document.getElementById("b7").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b7").value = "0";
+     document.getElementById("b7").disabled = true;
+     flag = 1;
+ }
+}
+
+function myfunc_10() {
+ if (flag == 1) {
+     document.getElementById("b8").value = "X";
+     document.getElementById("b8").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b8").value = "0";
+     document.getElementById("b8").disabled = true;
+     flag = 1;
+ }
+}
+function checkWin(currentClass) {
+	return WINNING_COMBINATIONS.some(combination => {
+		return combination.every(index => {
+			return cellElements[index].classList.contains(currentClass)
+		})
+	})
+}
+function myfunc_11() {
+ if (flag == 1) {
+     document.getElementById("b9").value = "X";
+     document.getElementById("b9").disabled = true;
+     flag = 0;
+ }
+ else {
+     document.getElementById("b9").value = "0";
+     document.getElementById("b9").disabled = true;
+     flag = 1;
+ }
+}
+    </script>
+</body>
+   
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tictactoe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            margin: 15px 0;
+
+        }
+
+        .header {
+            margin: 15px 0;
+        }
+
+        .details {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+
+        }
+
+        input {
+            border: 2px solid black;
+            outline: none;
+            padding: 4px 8px;
+            margin: 0 0 10px 40px;
+            font-size: 20px;
+        }
+
+        input:focus {
+            border: 2px solig green;
+
+
+        }
+
+        .button {
+            border: 2px solid grey;
+            padding: 8px;
+            font-size: 15px;
+            width: 250px;
+            border-radius: 7px;
+            margin-top: 10px;
+            margin-bottom: 50px;
+            background-color: white;
+        }
+
+        button:hover {
+            background-color: wheat;
+        }
+
+        button:active,
+        button:focus {
+            outline: none;
+            border: 2px solig green;
+        }
+
+        .game {
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            text-align: center;
+            margin: 0 auto;
+            /* border:2px solid black; */
+            margin-top: 10px;
+            display: none;
+        }
+
+        .game-slot {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header">tic tac toe</h1>
+            <div class="message header">tic tac toe</div>
+        </div>
+        <div class="details">
+            <label for="p[layer1">player1-o</label>
+            <input type="text" name="player1" placeholder="enter player1 name" id="player1">
+            <br>
+            <label for="player2">player2-x</label>
+            <input type="text" name="player2" placeholder="enter player2 name" id="player2">
+            <br>
+            <button type="submit" id="submit"> click to start the gsme</button>
+        </div>
+        <div class="game">
+            <!-- <div class="game-slot"></div>
+       <div class="game-slot"></div>
+       <div class="game-slot"></div>
+       <div class="game-slot"></div>
+       <div class="game-slot"></div>
+       <div class="game-slot"></div>
+       <div class="game-slot"></div>
+       <div class="game-slot"></div>
+       <div class="game-slot"></div> -->
+        </div>
+    </div>
+
+
+    <script>
+
+        const submit = document.getElementById("submit");
+        const game = document.querySelector(".game");
+        const details = document.querySelector(".details");
+        const message = document.querySelector(".message");
+
+
+        let player1 = ''
+        let player2 = ''
+        let playGame = true
+        let activeplayer = 0
+
+        function showmessage(msg) {
+            message.innerHTML = `<h3>${msg}</h3> `
+        }
+        function updatteactiveplayer() {
+            if (activeplayer === 0) {
+                activeplayer = 1
+            }
+            else {
+                activeplayer = 0
+            }
+        }
+
+
+        let p1 = []
+        let p2 = []
+        function initalizegame() {
+            player1 = document.getElementById("player1").value;
+            player2 = document.getElementById("player2").value;
+
+            activeplayer = 0
+
+            details.style.display = "none"
+            game.style.display = "flex"
+
+
+            for (let i = 1; i <= 9; i++) {
+
+                const div = document.createElement("div")
+                div.id = i
+                div.classList.add("game-slot")
+                showmessage(`${activeplayer === 0 ? player1 : player2} ,it is your chance to play`)
+
+                div.addEventListener("click", function () {
+
+
+                    if (!div.innerText && playGame) {
+                        div.innerText = activeplayer === 0 ? 'x' : 'o';
+                        if (activeplayer === 0) {
+                            p1.push(div.id - 1)
+                        }
+                        else {
+                            p2.push(div.id - 1)
+                        }
+                        const winner = checkwinner()
+                        if (!winner) {
+                            updatteactiveplayer()
+                            setTimeout(
+                                showmessage(`${activeplayer === 0 ? player1 : player2} ,it is your chance to play`)
+                                , 1000);
+                        } else {
+                            showmessage(`${activeplayer === 0 ? player1 : player2},you won`)
+                        }
+
+                    }
+                    else if (div.innerText && playGame) {
+
+                        setTimeout(
+                            showmessage(`${activeplayer === 0 ? player1 : player2} ,please click on valid box`)
+                            , 1000);
+                    }
+
+                });
+
+
+                game.appendChild(div)
+            }
+
+        }
+        const winningsequences = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [2, 5, 8],
+            [1, 4, 7],
+            [0, 4, 8],
+            [2, 4, 6],
+        ]
+        function checkwinner() {
+            let winbool = false;
+
+            for (let i = 0; i < winningsequences.length; i++) {
+                let mixxx = new Set([...winningsequences[i], ...p1])
+                let final = mixxx.size == p1.length
+                console.log(final)
+                if (final == true) {
+                    winbool = true;
+                    playGame = false;
+                    
+                    break;
+
+
+                }
+            }
+            console.log(winbool)
+            return winbool;
+
+        }
+
+        submit.addEventListener("click", initalizegame)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+body{
+    text-align: center;
+    background-color: aquamarine;
+    background: radial-gradient(white,aquamarine);
+}
+.top-section{
+    background-color: cornflowerblue;
+    background: radial-gradient(white,cornflowerblue);
+  
+}
+.top-cloud{
+    text-align: right;
+    margin-right: 20%;
+}
+.title h1{
+
+    font-family: cursive;
+    font-size: 60px;
+    text-align: center;
+    color:darkmagenta;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+.title h2,.profile-pic h2{
+    text-align: center;
+    color: darkmagenta;
+    padding-bottom: 50px;
+}
+.title h2 span{
+    text-decoration: underline;
+}
+.bottom-cloud{
+    text-align: left;
+    margin-left: 20%;
+}
+.mountain{
+    text-align: center;
+}
+.profile-pic img{
+  width: 500px;
+  border-radius: 50%;
+
+}
+.intro{
+    font-size: 30px;
+    margin: 100px auto 100px auto;
+    width: 30%;
+    
+}
+.myskills{
+    font-size: 30px;
+    text-align: left;
+    margin: 100px auto 100px auto;
+    width: 50%;
+}
+.skill-elemnet img{
+    max-height: 100px;
+}
+hr{
+    width: 4%;
+    border-width: 6px 6px 6px;
+    border-style: dotted dotted none;
+    border-color: rgb(234, 246, 246) rgb(234, 246, 246) rgb(234, 246, 246);
+    border-image: initial;
+    border-bottom: none;
+    margin: 100px auto;
+}
+.myskills h2{
+    text-align: center;
+    margin: 50px;
+    color: red;
+}
+.frame1{
+    height: 200px;
+    float: left;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+.img1{
+    float: right;
+    min-height: 200px;
+    min-width: 200px;
+    
+}
+.skill-elemnet
+{
+    margin: 100px, auto;
+}
+.skill-elemnet{
+    margin: 200px 0px;
+}
+.skill-elemnet h3{
+    color:rosybrown;
+    font-size: 35px;
+}
+.contac-info h3{
+    font-size: 50px;
+    color: seagreen;
+    margin: 50px 0px;
+
+}
+.contac-info p{
+    text-align: center;
+    font-size: 30px;
+    width: 40%;
+    margin: 40px auto 60px;
+}
+.contac-info btn{
+    background: rgb(48, 227, 203);
+    text-decoration: none;
+    
+}
+.btn{
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: rgb(59, 132, 214);
+}
+.btn:hover{
+    color: white;
+}
+.bottom-section{
+    text-align: center;
+      background-color: rgb(189, 226, 101);
+    margin-top: 50px;
+    padding: 50px 0 20px;
+    background: radial-gradient(white 1%,rgb(101, 201, 226) 99%);
+}
+.bottom-section a{
+    margin: 10px 20px;
+    text-decoration: none; 
+    cursor: pointer;
+}
+.bottom-section a:hover{
+    color: black;
+}

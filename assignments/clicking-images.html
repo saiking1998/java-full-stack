@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool images transition</title>
+    <link rel="stylesheet" href="clicking-images.css">
+    
+   
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel active" id="panel-1">
+            <h2>Explore the world</h2>
+        </div>
+        <div class="panel" id="panel-2">
+            <h2>wild forest</h2>
+        </div>
+        <div class="panel" id="panel-3">
+            <h2>city of heaven</h2>
+        </div>
+        <div class="panel" id="panel-4">
+            <h2>Sunny beach</h2>
+        </div>
+        <div class="panel" id="panel-5">
+            <h2>Mountain cloud</h2>
+        </div>
+    </div>
+    <script>
+        const panels = document.querySelectorAll('.panel')
+
+
+        panels.forEach(panel => {
+            panel.addEventListener("click", function () {
+                removeActiveClasses()
+                panel.classList.add("active")
+            })
+        })
+
+        function removeActiveClasses() {
+            panels.forEach(panel => {
+                panel.classList.remove("active")
+            })
+        }
+    </script>
+</body>
+
+</html>

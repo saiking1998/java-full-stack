@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Validation</title>
+  <script>
+    function validate(){
+      let emailInput = document.getElementById('email-input').value
+
+      let inputInfoDisplay = document.getElementById('input-info')
+      
+      /*
+        ank@gmail.co
+        1. @ symbol should be present
+        2. Atleast one character before @ symbol
+        3. After last dot, there should be atleast 2 characters
+        [Additional Checks] : Shouldn't have space, No special characters, capital letters or numbers as first character, Atleast one character after these . - _
+      */
+
+      let indexOfa = emailInput.indexOf('@')
+
+      let inputInfo = ''
+
+      inputInfoDisplay.style.color = 'red'
+
+      if(emailInput.indexOf('@') === -1)
+        inputInfo = 'Email not valid - @ missing!'
+      else if(emailInput.indexOf('@') < 1)
+        inputInfo = 'Email not valid - Atleast one character required before @ symbol!'
+      else if(emailInput.length - emailInput.lastIndexOf('.') <= 2)
+        inputInfo = 'Email not valid - After the last dot, there should be atleast 2 characters!'
+      else if(emailInput.indexOf(' ') != -1)
+        inputInfo = 'Email not valid - Cannot contain space!'
+      else if(emailInput[indexOfa - 1] === '.' || emailInput[indexOfa - 1] === '-' || emailInput[indexOfa - 1] === '_')
+        inputInfo = 'Email not valid - Atleast one character after these . - _!'
+      else if(emailInput.charCodeAt(0) < 97 || emailInput.charCodeAt(0) > 122)
+        inputInfo = 'Email not valid - No special characters, capital letters or numbers as first character allowed!'
+      else{
+        inputInfo = 'Valid email address'
+        inputInfoDisplay.style.color = 'green'
+      }
+      
+      inputInfoDisplay.innerText = inputInfo
+    }
+
+  function checkPasswordStrength(){
+      let password = document.getElementById('password-input').value
+      let passwordinfodisplay = document.getElementById('password-info')
+
+      let passwordinfo = ''
+      if(password.length==0){
+         passwordinfo = 'password is not valid'
+         passwordinfodisplay.style.color = 'red'
+      }
+      else if(password.length>10){
+          passwordinfo = 'password is strong'
+          passwordinfodisplay.style.color = 'green'
+      }
+      else if(password.length>=7 && password.length<=10){
+          passwordinfo = 'password is at good strenght level'
+          passwordinfodisplay.style.color = 'lightgreen'
+      }
+      else if(password.length>=4 && passwordinfo.length<=7 ){
+          passwordinfo = 'password is weak u can go but we suggest a stronger password'
+          passwordinfodisplay.style.color = 'orange'
+      }
+     
+      else if(password.length<4){
+          passwordinfo = 'password is too short atleast 4 characters required'
+          passwordinfodisplay.style.color = 'red'
+      }
+    
+    
+      passwordinfodisplay.innerText = passwordinfo
+  }
+  </script>
+  <style>
+    span{
+      font-size: 0.7em;
+    }
+  </style>
+</head>
+<body>
+  <form id='form1'>
+    <input type='text' placeholder='Type your email address' id='email-input' onchange="validate()" autocomplete="off"><br>
+    <span id='input-info'></span><br><br>
+    <input type='password' id='password-input' onkeydown="checkPasswordStrength()"><br>
+    <span id='password-info'></span><br><br>
+    <button id='submit-button' type='button'>Submit</button>
+  </form>
+  <script>
+    document.getElementById("form1").addEventListener("submit", function(e){
+      e.preventDefault()
+    });
+  </script>
+</body>
+</html>

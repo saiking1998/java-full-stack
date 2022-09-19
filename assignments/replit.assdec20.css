@@ -1,0 +1,31 @@
+.profile-pic{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+#RCJ{
+    width:100%;
+}
+.container{
+    margin-top: 20px;
+    background-color: whitesmoke;
+    box-shadow: 10px 10px 5px grey;
+  
+}
+.perc{
+    color: black ;
+    float: right;
+}
+.main{
+    padding: 10px;
+}
+.about-me{
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
+.heading{
+    font-weight: bold;
+}
+.info{
+    color:darkslategray;
+}

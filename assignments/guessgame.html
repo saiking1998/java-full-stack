@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Number Guessing</title>
+  <style>
+    * {
+      font-family: sans-serif;
+    }
+
+    body {
+      width: 50%;
+      max-width: 750px;
+      min-width: 480px;
+      margin: 0 auto;
+    }
+
+    #wrapper {
+      box-sizing: border-box;
+      text-align: center;
+      width: 750px;
+      height: 550px;
+      background-color: #12aab4;
+      color: #fff;
+      font-size: 25px;
+    }
+
+    h1 {
+      background-color: #7b3056;
+      color: #fff;
+      text-align: center;
+      width: 750px;
+    }
+
+    p {
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .lastResult,
+    .guesses {
+      color: white;
+      padding: 7px;
+    }
+
+    button {
+      background-color: purple;
+      color: #fff;
+      width: 250px;
+      height: 50px;
+      font-size: 30px;
+      border-radius: 25px;
+      border-style: none;
+      margin: 30px;
+    }
+
+    #subt {
+      background-color: yellow;
+      color: #000;
+      width: 350px;
+      height: 50px;
+      border-radius: 25px;
+      font-size: 30px;
+      border-style: none;
+      margin-top: 50px;
+      cursor: pointer;
+    }
+
+    #guess {
+      font-size: 50px;
+      margin-top: 100px;
+      color: #fff;
+    }
+
+    .guesses {
+      background-color: #12aab4;
+
+    }
+
+    #guessField {
+      color: #000;
+      width: 550px;
+      height: 100px;
+      border-style: none;
+      font-size: 50px;
+      border: 5px solid #14727d;
+      text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Number Guessing Game</h1>
+  <p>Try and guess a random number between 1 and 100.</p>
+  <p>You have 10 attempts to guess the right number.</p>
+
+  <div id="wrapper">
+    <form class="form">
+      <label for="guessField" id="guess">Guess a number</label>
+      <br>
+      <input type="text" id="guessField" class="guessField">
+      <br>
+      <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+    </form>
+    <div class="resultParas">
+      <p> <span class="guesses"></span></p>
+      <p> <span class="lastResult"></span></p>
+      <p class="lowOrHi"></p>
+    </div>
+  </div>
+  <script>
+
+const submit = document.querySelector("#subt")
+const userInput = document.querySelector("#guessField")
+const guessSlot = document.querySelector(".guesses")
+const remaining = document.querySelector(".lastResult")
+
+const startOver = document.querySelector(".resultParas")
+const lowOrHi = document.querySelector(".lowOrHi")
+
+let previousGuesses=[]
+let numGuesses = 0;
+
+let randomNumber = parseInt(Math.random()*100+1)
+let maxGuesses = 10
+
+let playGame = true;
+
+if(playGame){
+    submit.addEventListener("click",function(e){
+        e.preventDefault();
+    
+        const guess = parseInt(userInput.value)
+        validateGuess(guess)
+    })
+}
+
+
+function validateGuess(guess){
+    previousGuesses.push(guess)
+
+    if(previousGuesses.length===maxGuesses){
+        // Game over
+        displayGuesses(guess)
+        displayMsg(`Game Over! Number was ${randomNumber}`)
+        endGame()
+    }else{
+        displayGuesses(guess)
+        checkGuess(guess)
+    }
+}
+
+function displayGuesses(guess){
+    guessSlot.innerHTML+=`${guess} `
+    // guessSlot.innerHTML= guessSlot.innerHTML + `${guess} `
+    userInput.value=''
+    numGuesses++;
+
+    let remainingGuesses = maxGuesses - numGuesses
+
+    if(remainingGuesses<0){
+        remainingGuesses = 0
+    }
+    remaining.innerHTML = remainingGuesses
+}
+function displayMsg(message){
+    lowOrHi.innerHTML = `<h1>${message}</h1>`
+}
+function checkGuess(guess){
+    if(guess === randomNumber){
+        displayMsg("You guessed correctly!")
+        endGame()
+    }else if(guess<randomNumber){
+        displayMsg("Too low! Try a higher number")
+    }else{
+        displayMsg("Too High! Try a smaller number")
+    }
+}
+
+const pEl = document.createElement("p")
+function endGame(){
+    userInput.value=''
+    pEl.classList.add("button")
+    pEl.style.cursor = "pointer"
+    pEl.innerHTML = `<h1 onclick="newGame()" id="newGame">Start New Game</h1>`
+
+    startOver.append(pEl)
+
+    playGame=false
+    userInput.disabled = true
+    submit.disabled = true;
+}
+
+function newGame(){
+    location.reload()
+}
+  </script>
+</body>
+
+</html>

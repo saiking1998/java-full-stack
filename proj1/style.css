@@ -1,0 +1,17 @@
+.container{
+    
+   text-align: center;
+    margin-top: 300px;
+}
+.output{
+    margin-top:40px;
+    color: red;
+    font-weight:bold;
+    font-size:30px;
+}
+.input{
+    min-width:400px;
+}
+.output:hover{
+    font-size: 6rem;
+}

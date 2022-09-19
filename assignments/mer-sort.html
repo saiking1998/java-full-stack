@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sort Without Articles</title>
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #bands {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    #bands li {
+      border-bottom: 1px solid #efefef;
+      padding: 20px;
+    }
+    
+    #bands li:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+
+  </style>
+
+  <ul id="bands"></ul>
+<!-- //         //  function pizza(){
+//         //      console.log("order recived")
+//         //      console.log("chef is preparing the pizza.......")
+//         //      setTimeout(function(){
+//         //          console.log("pizza sause added...")
+//         //      },5000)
+//         //     }
+//         // let bb =[30000, 1000, 20000, 100,2000,5000,4000]
+//         // let newarr= bb.map(function(nums){
+//         //     let test = Array.from(String(nums));
+//         //     console.log(test)
+           
+//         //     if(test[0]%2==0){
+//         //        let tt = test.map(function(x){
+//         //            return parseInt(x,10);
+                  
+//         //        })
+               
+//         //        let ttt = Number(tt.join(""));
+//         //       return ttt*1.2
+               
+//         //     }
+//         //     else{
+//         //         let tt = test.map(function(x){
+//         //            return parseInt(x,10);
+//         //        })
+//         //        let tttt = Number(tt.join(""));
+//         //        return tttt*1.35
+              
+//         //     }
+//         // })
+// // //         //     console.log(newarr)
+// // let a = 5
+// // let y =a
+
+// // console.log(y === a)   
+
+// const arr = (left ,right)=>{
+//     const out = [];
+//     let lefti = 0;
+//     let righti = 0;
+
+//     while(lefti<left.length && righti<right.length){
+//       const leftele = left[lefti];
+//       const rightele = right[righti];
+
+//       if(leftele< rightele){
+//           out.push(leftele)
+//           lefti++;
+//       }
+//       else{
+//           out.push(rightele);
+//           righti++;
+//       }
+//     }
+//     return [...out,...left.slice(lefti),...right.slice(righti)]
+
+// };
+
+// const mergesort = array =>{
+//     if(array.length<=1){
+//     return array;
+//     }
+
+//     const middle = Math.floor(array.length/2);
+//     const left = array.slice(0 ,middle);
+//     const right = array.slice(middle);
+
+//     return arr(
+//         mergesort(left),
+//         mergesort(right)
+        
+//     );
+// };
+// console.log(mergesort([200,30,50,70,1,2,3,55,6,6,999,22,2,54,88,77,89])) -->
+<script>
+// const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+// let finalBandnames=[]
+// let newBandArray = bands.map((e)=>{
+//   let x= e.replace(/A |An |The /gi, "")   
+//   return x
+// })
+// let newBandArray2 = [...newBandArray]
+// let sortedBandName = newBandArray.sort()
+// for(i=0;i<bands.length;i++){
+//   for(j=0;j<bands.length;j++){
+//     if(sortedBandName[i]==newBandArray2[j]){
+//      finalBandnames[i]=bands[j]
+//       break;
+//     }
+//   }
+// }
+
+// const bandsId = document.getElementById("bands")
+
+// for(i=0;i<bands.length;i++){
+//   const newtag= document.createElement("li")
+//   newtag.innerHTML=finalBandnames[i]
+//   bandsId.appendChild(newtag)
+// }
+
+        
+    </script>
+</body>
+</html>

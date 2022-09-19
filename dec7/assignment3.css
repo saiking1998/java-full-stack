@@ -1,0 +1,23 @@
+table td{
+    border: 1px solid black;
+}
+.middle{
+  margin: auto;
+  width: 60%;
+}
+.center
+{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+.green{
+    background-color: green;
+}
+.purple{
+    background-color: purple;
+}
+.mm{
+    width: 500px;
+}

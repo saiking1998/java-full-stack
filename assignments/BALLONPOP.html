@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+h1{
+    font-size: 30px;
+    color:blue;
+    margin-bottom: 50px;
+    margin-top: 0;
+   
+}
+.ballon-container{
+    width:500px;
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.balloon{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.zero-ballon{
+    color:red;
+    font-size: 30px;
+    display:none;
+}
+
+</style>
+<body>
+<div class="ballon-container">
+    <h1>POP THE BALLONS <br>
+    to RELEVE STRESS BY PPOPING</h1>
+</div>
+<div class="zero-ballon">
+    <span class="blue">Wow!!!!</span> All ballons popped!!!!
+</div>
+
+
+    <script>
+
+       const container = document.querySelector(".ballon-container");
+       const numballon = 25;
+       let popped = 0;
+              for(let i = 1; i <=numballon; i++){
+           const divele = document.createElement("div");
+
+           divele.classList.add("balloon");
+           divele.innerText = "pop!";
+           const randcolor = getcolor();
+           divele.style.backgroundColor = `${randcolor}`
+           divele.style.color =`${randcolor}`
+            divele.addEventListener("mouseenter", function(){
+                if(divele.style.backgroundColor!=="transparent"){
+                    popped++; 
+                }
+                divele.style.backgroundColor ="transparent"
+                
+                checkallpop()
+            })
+           container.appendChild(divele)
+       }
+       function checkallpop(){
+           if(popped===25){
+               let msg = document.querySelector(".zero-ballon");
+               msg.style.display = "block"
+               container.innerHTML = ''
+           }
+       }
+       function getcolor(){
+           function color(){
+               let hex = random(255).toString(16)
+               return hex.padStart(2,"0")
+           }
+           
+           return "#"+color()+color()+color()
+       }
+       function random(number){
+           let val =Math.floor(Math.random()*number);
+           return val;
+       }
+    </script>
+</body>
+</html>

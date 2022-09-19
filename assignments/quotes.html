@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: black;
+            background-image: url(https://previews.123rf.com/images/foottoo/foottoo1302/foottoo130200186/17743565-footpath-at-a-forest-nice-background.jpg);
+            color: white;
+
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 700;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote-container {
+            width: auto;
+            max-width: 900px;
+            padding: 20px 30px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0,0.5);
+
+        }
+
+        .quote-text {
+            font-size: 2.5rem;
+        }
+        .long-quote {
+            font-size: 1.75rem;
+        }
+        .fa-auto-left {
+            font-size: 4rem;
+        }
+
+        .quote-author {
+            margin-top: 15px;
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        button {
+            cursor: pointer;
+            font-size: 1.2rem;
+            height: 2.5rem;
+            border: none;
+            margin-top: 15px;
+            border-radius: 10px;
+            color: white;
+            background-color: grey;
+            outline: none;
+            padding: 0.5rem 1.8rem;
+        }
+
+        .loader {
+            border: 16px solid white;
+            border-top: 16px solid black;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="quote-container" id="quote-container">
+
+        <div class="quote-text">
+            <i class="fas fa-quote-left"></i>
+            <span id="quote"></span>
+
+        </div>
+        <div class="quote-author">
+            <span id="author"></span>
+        </div>
+        <div class="button-container">
+            <button id="new-quote">New Quote</button>
+        </div>
+    </div>
+    <div class="loader" id="loader"></div>
+
+
+
+
+
+    <script>
+        const quotecontainer = document.getElementById("quote-container");
+        const quotetext = document.getElementById("quote");
+        const authortext = document.getElementById("author");
+        const quotebutton = document.getElementById("new-quote");
+        const loader = document.getElementById("loader");
+
+        let apiquote = []
+        function showspinner() {
+            loader.hidden = false;
+            quotecontainer.hidden = true;
+        }
+        function removespinner() {
+            loader.hidden = true;
+            quotecontainer.hidden = false;
+        }
+        async function getqoute() {
+            showspinner();
+
+            const apiurl = "https://type.fit/api/quotes"
+            try {
+                const responce = await fetch(apiurl)
+                apiquote = await responce.json()
+                newquote()
+            } catch (e){
+                console.log(e)
+            }
+
+
+        }
+        function newquote() {
+            showspinner();
+            
+               
+             setTimeout(function(){
+                const quote = apiquote[Math.floor(Math.random()*apiquote.length)]
+            console.log(quote)
+            if(!quote.author){
+                authortext.textContent = 'Unknown'
+            }else{
+                authortext.textContent = quote.author
+            }
+            if(quote.text.length>100){
+                quotetext.classList.add("long-quote")
+            }else{
+                quotetext.classList.remove("long-quote")
+            }
+
+            quotetext.textContent=quote.text
+            removespinner();
+
+             },1500)
+           
+
+        }
+        getqoute();
+        quotebutton.addEventListener("click", newquote)
+
+
+    </script>
+</body>
+
+</html>

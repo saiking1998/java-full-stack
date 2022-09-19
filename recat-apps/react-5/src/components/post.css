@@ -1,0 +1,29 @@
+.post .post-btn{
+    
+    margin: 5px 10px 0 0 ;
+}
+.post .card-header{
+    background-color: lightblue;
+}
+.post .card-footer{
+    background-color: lightgreen;
+
+}
+.post .card-body{
+    background-color: skyblue;
+}
+.post{
+    
+    margin:auto auto auto auto;
+    
+      max-width:40%;
+      margin-top:15px;
+      text-align:center;
+      display: flex;
+      
+    
+}
+.spinner{
+    margin-left:45vw;
+    margin-top:10vw;
+}

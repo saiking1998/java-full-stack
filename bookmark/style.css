@@ -1,0 +1,99 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .well {
+      min-height:100px;
+      background-color: rgb(146, 143, 155);
+      box-sizing: border-box;
+      border-radius:15px;
+      margin: 2px;
+     justify-content: center;
+  }
+
+  .visit{
+      margin-left: 10px;
+      
+  }
+  
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .btn{
+      margin-top: 30px;
+  }
+ 
+  .header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+  }
+  
+  
+  .footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+  }
+  .jumbotron {
+    background-color: rgb(169, 155, 209);
+    box-sizing: border-box;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 5px 10px 8px 10px #615454;
+  }
+ 
+  @media (min-width: 768px) {
+    .container {
+      max-width: 730px;
+    }
+  }
+  .container-narrow > hr {
+    margin: 30px 0;
+  }
+  
+  
+  .jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .jumbotron .btn {
+    padding: 14px 24px;
+    font-size: 21px;
+  }
+  
+  
+  .marketing {
+    margin: 40px 0;
+  }
+  .marketing p + h4 {
+    margin-top: 28px;
+  }
+  
+  
+  @media screen and (min-width: 768px) {
+    
+    .header,
+    .marketing,
+    .footer {
+      padding-right: 0;
+      padding-left: 0;
+    }
+   
+    .header {
+      margin-bottom: 30px;
+    }
+    
+    .jumbotron {
+      border-bottom: 0;
+    }
+  }

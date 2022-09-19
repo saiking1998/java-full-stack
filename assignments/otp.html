@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color:gainsboro;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .container{
+            background-color:gainsboro;
+            border: 3px solid black;
+            border-radius:10px;
+            padding:30px;
+            max-width: 1000px;
+            text-align:center;
+
+        }
+
+        .code-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin:4px 0;
+        }
+        .code{
+            caret-color: transparent;
+            border-radius:5px;
+            font-size:75px;
+            height:120px;
+            width: 100px;
+            border: 1px solid white;
+            margin: 1%;
+            text-align:center;
+            font-weight:300;
+        }
+        .code:valid{
+            border-color: blue;
+            box-shadow: 0 10px 10px -5px black ;
+        }
+        .info{
+            background-color: white;
+            display: inline-block;
+            padding:10px;
+            line-height:40px;
+            color:grey;
+            border-radius:5px;
+        }
+        .code::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        @media(max-width:600px){
+            .code-container{
+                flex-wrap: wrap;
+            }
+            .code{
+                font-size:60px;
+                height:80px;
+                max-width:70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>verify your account</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore atque incidunt natus totam nesciunt
+            voluptate. Omnis accusantium eum numquam? Rerum!</p>
+        <div class="code-container">
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        </div>
+        <small class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod accusamus explicabo eveniet!
+            Similique voluptatem accusantium repudiandae ad nostrum dolor odit!</small>
+
+    </div>
+    <script>
+          const codes= document.querySelectorAll(".code")
+          codes[0].focus()
+          codes.forEach((code,idx)=>{
+              code.addEventListener("keydown",(e)=>{
+                  const keypressed=e.key
+                  if(keypressed>=0 && keypressed<=9){
+                    codes[idx].value=''
+                    setTimeout(()=>codes[idx+1].focus(),10) 
+                   
+                  }
+                  else if(keypressed==="Backspace"){
+                      setTimeout(()=>codes[idx-1].focus(),10)
+                  }
+              })
+          })
+    </script>
+</body>
+
+</html>
